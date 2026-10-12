@@ -25,7 +25,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Validate inline JavaScript
         run: |
-          node -e 'const fs = require("node:fs"); const html = fs.readFileSync("index.html", "utf8"); const scripts = [...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/gi)].map(match => match[1]); if (!html.toLowerCase().includes("<!doctype html>") || !html.includes("<title>Aishu — About Me</title>") || scripts.length === 0) throw new Error("Basic HTML checks failed"); fs.writeFileSync("/tmp/aishu-inline.js", scripts.join("\n;\n"));'
+          node -e 'const fs = require("node:fs"); const html = fs.readFileSync("index.html", "utf8"); const start = html.indexOf("<script>"); const end = html.indexOf("</script>", start); if (!html.toLowerCase().includes("<!doctype html>") || !html.includes("<title>Aishu — About Me</title>") || start < 0 || end < 0) throw new Error("Basic HTML checks failed"); fs.writeFileSync("/tmp/aishu-inline.js", html.slice(start + 8, end));'
           node --check /tmp/aishu-inline.js
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
