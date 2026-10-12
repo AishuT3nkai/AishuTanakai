@@ -109,28 +109,61 @@
   <script>
     const homePage = document.getElementById('homePage');
     const secretPage = document.getElementById('secretPage');
-    function showSecret(open) {
+    const openSecretButton = document.getElementById('openSecret');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: reduceMotion.matches ? 'auto' : 'smooth' });
+    }
+
+    function showSecret(open, { updateHistory = true, restoreFocus = false } = {}) {
       homePage.classList.toggle('hidden', open);
       secretPage.classList.toggle('active', open);
-      if (open) {
-        history.replaceState(null, '', '#secret');
-        secretPage.focus();
-        window.scrollTo({top: 0, behavior: 'smooth'});
-      } else {
-        history.replaceState(null, '', location.pathname + location.search);
-        window.scrollTo({top: 0, behavior: 'smooth'});
+
+      if (updateHistory) {
+        const nextUrl = open
+          ? '#secret'
+          : location.pathname + location.search;
+        if (open && location.hash !== '#secret') {
+          history.pushState({ view: 'secret' }, '', nextUrl);
+        } else if (!open && location.hash) {
+          history.replaceState(null, '', nextUrl);
+        }
       }
+
+      if (open) {
+        secretPage.focus();
+      } else if (restoreFocus) {
+        openSecretButton.focus();
+      }
+      scrollToTop();
     }
-    document.getElementById('openSecret').addEventListener('click', () => showSecret(true));
-    document.getElementById('backHome').addEventListener('click', () => showSecret(false));
+
+    openSecretButton.addEventListener('click', () => showSecret(true));
+    document.getElementById('backHome').addEventListener('click', () => {
+      showSecret(false, { restoreFocus: true });
+    });
     document.getElementById('brandHome').addEventListener('click', event => {
       if (secretPage.classList.contains('active')) {
         event.preventDefault();
-        showSecret(false);
+        showSecret(false, { restoreFocus: true });
       }
     });
+
+    window.addEventListener('popstate', () => {
+      const shouldShowSecret = location.hash === '#secret';
+      if (secretPage.classList.contains('active') !== shouldShowSecret) {
+        showSecret(shouldShowSecret, {
+          updateHistory: false,
+          restoreFocus: !shouldShowSecret
+        });
+      }
+    });
+
     document.getElementById('year').textContent = new Date().getFullYear();
-    if (location.hash === '#secret') showSecret(true);
+    if (location.hash === '#secret') {
+      showSecret(true, { updateHistory: false });
+    }
   </script>
 </body>
 </html>
