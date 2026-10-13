@@ -33,7 +33,7 @@ a{color:inherit}
 .tile-icon{width:39px;height:39px;flex:0 0 39px;display:grid;place-items:center;border-radius:12px;background:#bca0ff17;color:#d8c8ff}
 .tile-icon svg{width:21px;height:21px;fill:currentColor}
 .tile strong{display:block;font-size:.87rem}.tile small{display:block;color:var(--muted);font-size:.73rem;overflow-wrap:anywhere}
-.socials{display:flex;justify-content:center;gap:12px;margin:19px 0}
+.nav-tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:0 0 17px}.nav-tile{display:flex;flex-direction:column;align-items:flex-start;gap:6px;min-width:0;padding:12px 10px;border:1px solid #bca0ff35;border-radius:14px;background:linear-gradient(145deg,#bca0ff12,#ffffff04);text-decoration:none;transition:transform .2s,border-color .2s,background .2s}.nav-tile:hover{transform:translateY(-3px);border-color:#bca0ff99;background:#bca0ff12}.nav-tile .nav-symbol{display:grid;place-items:center;width:30px;height:30px;border-radius:10px;background:#bca0ff1b;color:#d8c8ff;font-size:1rem}.nav-tile strong{font-size:.78rem;line-height:1.25}.nav-tile small{color:var(--muted);font-size:.67rem;line-height:1.3}.section-anchor{scroll-margin-top:18px}.section-panel{margin-top:15px;padding:16px;border:1px solid var(--line);border-radius:16px;background:#ffffff06}.section-panel h2{font-size:1rem;margin:0 0 5px}.section-panel p{font-size:.82rem;color:#d4d0dc;margin:0}.section-panel .section-link{display:inline-block;margin-top:10px;color:#d8c8ff;font-size:.8rem;text-decoration:none}.socials{display:flex;justify-content:center;gap:12px;margin:19px 0}
 .social{width:42px;height:42px;display:grid;place-items:center;border:1px solid var(--line);border-radius:14px;background:#ffffff08;color:#e4dcf4;text-decoration:none;transition:transform .2s,border-color .2s}
 .social:hover{transform:translateY(-3px);border-color:var(--accent)}
 .social svg{width:19px;height:19px;fill:currentColor}
@@ -44,7 +44,7 @@ a{color:inherit}
 .footer{text-align:center;color:#aaa4b5;font-size:.72rem;margin-top:18px}
 @keyframes sweep{0%,25%{transform:translateX(-25%)}65%,100%{transform:translateX(25%)}}
 @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
-@media(max-width:420px){.content{padding:0 16px 18px}.cover{height:108px}.avatar{width:76px;height:76px;border-radius:21px}.name{font-size:1.22rem}.tile{padding:11px;gap:9px}.tile-icon{width:34px;height:34px;flex-basis:34px}}
+@media(max-width:420px){.nav-tiles{gap:6px}.nav-tile{padding:10px 8px}.nav-tile strong{font-size:.72rem}.nav-tile small{font-size:.62rem}.content{padding:0 16px 18px}.cover{height:108px}.avatar{width:76px;height:76px;border-radius:21px}.name{font-size:1.22rem}.tile{padding:11px;gap:9px}.tile-icon{width:34px;height:34px;flex-basis:34px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
@@ -58,6 +58,14 @@ a{color:inherit}
 <div class="name-wrap"><div class="name">AishuT3nkai</div><div class="handle">AishuT3nkai Studio</div><span class="badge"><i aria-hidden="true"></i> On my own wavelength</span></div>
 </div>
 <p class="bio">Anime, music, games, and code. Welcome to my little corner of the internet. ✦</p>
+<nav class="nav-tiles" aria-label="Main navigation">
+<a class="nav-tile" href="#projects"><span class="nav-symbol" aria-hidden="true">⌘</span><strong>My Projects</strong><small>Things I build ↘</small></a>
+<a class="nav-tile" href="#about"><span class="nav-symbol" aria-hidden="true">✦</span><strong>About Me</strong><small>Get to know me ↘</small></a>
+<a class="nav-tile" href="#achievements"><span class="nav-symbol" aria-hidden="true">🏆</span><strong>Achievements</strong><small>My milestones ↘</small></a>
+</nav>
+<section class="section-panel section-anchor" id="projects" aria-labelledby="projects-title"><h2 id="projects-title">My Projects</h2><p>Website, dashboard, Discord bot, and other experiments I’m building.</p><a class="section-link" href="https://github.com/AishuT3nkai" target="_blank" rel="noopener noreferrer">Explore my GitHub ↗</a></section>
+<section class="section-panel section-anchor" id="about" aria-labelledby="about-title"><h2 id="about-title">About Me</h2><p>I’m AishuT3nkai — into anime, music, games, and creating things with code.</p></section>
+<section class="section-panel section-anchor" id="achievements" aria-labelledby="achievements-title"><h2 id="achievements-title">Achievements</h2><p>My coding progress and milestones will live here as I complete more projects.</p></section>
 <div class="tiles">
 <a class="tile" href="https://discord.gg/W8ZvuqHXSt" target="_blank" rel="noopener noreferrer" aria-label="Join the Discord server">
 <span class="tile-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M19.7 5.3A18.7 18.7 0 0 0 15.1 4l-.6 1.2a17 17 0 0 0-5 0L8.9 4a18.7 18.7 0 0 0-4.6 1.3C1.4 9.5.6 13.6 1 17.7a18.8 18.8 0 0 0 5.7 2.9l1.2-2a12 12 0 0 1-1.9-.9l.5-.4c3.7 1.7 7.7 1.7 11.3 0l.5.4a12 12 0 0 1-1.9.9l1.2 2a18.8 18.8 0 0 0 5.7-2.9c.5-4.8-.8-8.9-3.6-12.4ZM8.8 14.7c-1.1 0-2-1-2-2.2s.9-2.2 2-2.2 2 1 2 2.2-.9 2.2-2 2.2Zm6.4 0c-1.1 0-2-1-2-2.2s.9-2.2 2-2.2 2 1 2 2.2-.9 2.2-2 2.2Z"/></svg></span>
