@@ -15,7 +15,7 @@
     .wrap{width:min(1020px,calc(100% - 36px));margin-inline:auto}
     header{display:flex;align-items:center;justify-content:space-between;padding:24px 0;border-bottom:1px solid var(--line)}
     .brand{font-weight:800;letter-spacing:.04em}.brand span{color:var(--accent)}
-    .status{color:var(--muted);font-size:.85rem;display:flex;align-items:center;gap:8px}.dot{width:7px;height:7px;background:#a6e3a1;border-radius:50%;box-shadow:0 0 12px #a6e3a177}
+    .status{color:var(--muted);font-size:.85rem;display:flex;align-items:center;gap:8px}.dot{width:7px;height:7px;background:#a6e3a1;border-radius:50%;box-shadow:0 0 12px #a6e3a177}\n    .profile-mark{display:flex;align-items:center;gap:18px;margin-top:30px;max-width:460px;padding:14px 18px;border:1px solid #44355c;border-radius:18px;background:linear-gradient(110deg,#20152fbb,#111018bb);box-shadow:0 0 34px #8c72d922;animation:mark-float 4s ease-in-out infinite}\n    .profile-mark img{width:82px;height:82px;object-fit:cover;border-radius:50%;border:2px solid var(--accent);box-shadow:0 0 22px #a783ff77;animation:mark-glow 3s ease-in-out infinite alternate}\n    .profile-mark strong{display:block;font-size:1.05rem}.profile-mark span{display:block;color:var(--muted);font-size:.88rem}\n    @keyframes mark-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}\n    @keyframes mark-glow{from{box-shadow:0 0 12px #a783ff44}to{box-shadow:0 0 28px #a783ffbb}}\n    .anime-card{position:relative;overflow:hidden;border-color:#49385e;background:radial-gradient(ellipse at 90% 0%,#43256c88,transparent 48%),linear-gradient(145deg,#171720,#101016)}\n    .anime-card:before{content:"";position:absolute;inset:-60% auto -60% -35%;width:25%;transform:rotate(20deg);background:linear-gradient(90deg,transparent,#ffffff10,transparent);animation:magic-sweep 6s ease-in-out infinite;pointer-events:none}\n    @keyframes magic-sweep{0%,35%{left:-35%}70%,100%{left:130%}}\n    .anime-card>*{position:relative}.anime-card iframe{display:block;width:100%;aspect-ratio:16/9;height:auto;border:0;border-radius:13px;margin-top:16px;background:#08080c}
     main{padding:76px 0 64px}
     .eyebrow{text-transform:uppercase;letter-spacing:.19em;color:var(--accent);font-size:.76rem;font-weight:750}
     h1{font-size:clamp(3.2rem,10vw,6.7rem);line-height:.98;letter-spacing:-.075em;margin:18px 0 22px;max-width:800px}
@@ -45,7 +45,7 @@
     .secret-panel p{color:#d1ccd9}.signature{color:var(--accent)!important;margin-top:28px}
     :focus-visible{outline:3px solid var(--accent);outline-offset:4px}
     @media(max-width:640px){main{padding-top:54px}.grid{grid-template-columns:1fr}.card{min-height:unset}.crack-area{align-items:flex-start;flex-direction:column}section{margin-top:54px}}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+    @media(max-width:640px){.profile-mark img{width:68px;height:68px}}\n    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
   </style>
 </head>
 <body>
@@ -64,7 +64,7 @@
           <a class="btn primary" href="#interests">Get to know me <span aria-hidden="true">↘</span></a>
           <a class="btn" href="https://github.com/AishuT3nkai" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
         </div>
-        <div class="facts" aria-label="Quick facts">
+        <div class="profile-mark" aria-label="Aishu's logo"><img src="https://cdn.discordapp.com/avatars/1534184389838114857/2465cb637fbecfb51382f5b8b07e3a9b.png?size=1024" alt="Aishu's personal logo" width="82" height="82" loading="eager" referrerpolicy="no-referrer"><div><strong>AishuT3nkai Studio</strong><span>My logo · my little universe ✦</span></div></div>\n        <div class="facts" aria-label="Quick facts">
           <span class="pill">📍 Blitar, Indonesia</span>
           <span class="pill">🎂 June 21</span>
           <span class="pill">🌙 Night-owl energy</span>
@@ -90,7 +90,7 @@
         </div>
       </section>
 
-      <section id="interests">
+      <section id="black-clover">\n        <div class="section-head"><h2>Black Clover — Magic Mode</h2><span class="hint">Opening 10 · Black Catcher</span></div>\n        <div class="card anime-card">\n          <div class="emoji" aria-hidden="true">🍀⚔️</div>\n          <h3>Surpass your limits.</h3>\n          <p>A little Black Clover energy for AishuT3nkai Studio. The player uses the official Crunchyroll opening; tap play if your browser blocks autoplay.</p>\n          <iframe title="Black Clover Opening 10 — Black Catcher, official Crunchyroll video" src="https://www.youtube-nocookie.com/embed/XMeQeIG_rQg?autoplay=1&playsinline=1&rel=0" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>\n          <p style="margin-top:12px"><a href="https://www.youtube.com/watch?v=XMeQeIG_rQg" target="_blank" rel="noopener noreferrer">Watch Black Clover Opening 10 on YouTube ↗</a></p>\n        </div>\n      </section>\n\n      <section id="interests">
         <div class="section-head"><h2>Things I'm into</h2><span class="hint">A few parts of my world</span></div>
         <div class="grid">
           <article class="card"><div class="emoji" aria-hidden="true">🎧</div><h3>Music</h3><p>Soundtracks for every mood, from quiet moments to full-on energy.</p></article>
